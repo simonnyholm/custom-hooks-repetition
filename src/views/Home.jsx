@@ -1,16 +1,18 @@
 import useSelect from "../hooks/useSelect";
 //import useAxios from "../hooks/useAxios";
 import useA from "../hooks/useA";
+import Filter from "../components/Filter";
 
 const Home = () => {
   const { data, loading, error } = useA({
     url: "http://localhost:4000/api/v1/classes",
     method: "GET",
-    header: {
+    headers: {
       accept: "application/json",
-      //"autorisation": "Bearer 897897897897979"
     },
   });
+
+  console.log("data", data);
 
   const { select, selected } = useSelect(
     data?.map((item) => item.className) ?? []
@@ -34,6 +36,7 @@ const Home = () => {
       <pre>{error}</pre>
       <section>{loading ? <p>...loading</p> : select}</section>
       <section>{loading ? <p>...loading</p> : selected}</section>
+      <Filter />
     </>
   );
 };

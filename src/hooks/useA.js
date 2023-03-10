@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function useA({ url, method = "GET", headers = {} }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { error, setError } = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(
     function () {
@@ -14,7 +14,7 @@ export default function useA({ url, method = "GET", headers = {} }) {
             throw new Error("missing url parameter");
           } //guard clause
           setLoading(true);
-          const response = await axios.get({ url, method, headers });
+          const response = await axios({ url, method, headers });
           setData(response.data);
         } catch (error) {
           //her kunne være importeret en logging service fx sentry.io
@@ -25,7 +25,7 @@ export default function useA({ url, method = "GET", headers = {} }) {
         }
       })();
     },
-
+    // eslint-disable-next-line
     [url]
   );
 
