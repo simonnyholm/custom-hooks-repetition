@@ -36,7 +36,7 @@ const Home = () => {
       <pre>{error}</pre>
       <section>{loading ? <p>...loading</p> : select}</section>
       <section>{loading ? <p>...loading</p> : selected}</section>
-      <Filter />
+      <Filter data={data} />
     </>
   );
 };
