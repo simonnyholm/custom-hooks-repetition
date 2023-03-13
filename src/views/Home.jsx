@@ -28,6 +28,7 @@ const Home = () => {
   console.log("data", data);
 
   */
+  console.log("selected", selected);
 
   return (
     <>
@@ -36,7 +37,7 @@ const Home = () => {
       <pre>{error}</pre>
       <section>{loading ? <p>...loading</p> : select}</section>
       <section>{loading ? <p>...loading</p> : selected}</section>
-      <Filter data={data} />
+      <Filter arr={data} />
     </>
   );
 };

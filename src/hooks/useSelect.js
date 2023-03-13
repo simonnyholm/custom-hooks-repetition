@@ -8,12 +8,14 @@ export default function useSelect(options) {
   }
 
   const select = (
-    <select name="hookSelect" onChange={selectHandler}>
-      <option defaultValue>Vælg én</option>
-      {options.map((item, index) => (
-        <option key={index}>{item}</option>
-      ))}
-    </select>
+    <>
+      <select name="hookSelect" onChange={selectHandler}>
+        <option defaultValue>Vælg én</option>
+        {options.map((item, index) => (
+          <option key={index}>{item}</option>
+        ))}
+      </select>
+    </>
   );
 
   return { selected, select };
